@@ -25,3 +25,18 @@ body * {
   flex-direction: column;
   align-items: center;
 }
+
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--background-primary);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--background-accent);
+  border-radius: 30px;
+  border: none;
+}
