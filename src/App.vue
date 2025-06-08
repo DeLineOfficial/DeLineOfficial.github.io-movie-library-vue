@@ -1,85 +1,90 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import themeSwitcher from './components/themeSwitcher/themeSwitcher.vue';
+import sidebarRouter from './components/sidebarRouter/sidebar-router.vue';
+
+const routerItems = ref([
+  {
+    link: '/',
+    icon: 'house',
+  },
+  {
+    link: '/test',
+    icon: 'calculator',
+  },
+])
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+  <main>
+    <header class="header">
+      <themeSwitcher class="theme"/>
+    </header>
+    <aside class="sidebar">
+      <sidebarRouter :items="routerItems"/>
+    </aside>
+    <div class="main-container">
+      <RouterView class="router-view"/>
     </div>
-  </header>
-
-  <RouterView />
+  </main>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
+<style scoped lang="scss">
+main {
+  display: flex;
   width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
+  overflow: hidden;
+  height: 100vh;
+  position: relative;
+  background: var(--background-primary);
 }
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
+aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  transition: .3s;
+  padding: 20px;
+  padding-top: 80px;
+  min-width: 86px;
+  width: 86px;
+  background: var(--background-secondary);
 }
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+.header {
+  display: flex;
+  width: 100%;
+  right: 0;
+  position: absolute;
+  top: 0;
+  align-items: center;
+  height: 60px;
+  padding: 0 20px;
+  background: var(--background-secondary);
+  > .theme {
+    margin-left: auto;
   }
+}
+.main-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  flex: 1 1 auto;
+  box-shadow: inset 3px 3px 5px rgba($color: #000000, $alpha: 0.2);
+  transition: .3s;
+  padding: 20px;
+  padding-top: 80px;
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
+  > .router-view {
+    animation: fadeIn .3s;
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
   }
 }
 </style>

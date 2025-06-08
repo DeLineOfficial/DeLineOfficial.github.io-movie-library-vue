@@ -1,0 +1,27 @@
+@import 'themes/dark.scss';
+@import 'themes/light.scss';
+
+@font-face {  
+    font-family: 'Roboto';  
+    src: url('../../public/fonts/Roboto/Roboto-VariableFont_wdth\,wght.ttf')
+}
+@font-face {
+  font-family: 'Roboto Italic';
+  src: url('../../public/fonts/Roboto/Roboto-Italic-VariableFont_wdth\,wght.ttf');
+}  
+
+* {
+  font-family: 'Roboto';
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body * {
+  transition: .3s;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
