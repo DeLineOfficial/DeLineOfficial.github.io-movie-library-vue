@@ -32,7 +32,8 @@ body * {
 }
 
 *::-webkit-scrollbar-track {
-  background: var(--background-primary);
+  background: var(--background-secondary);
+  border-radius: 30px;
 }
 
 *::-webkit-scrollbar-thumb {

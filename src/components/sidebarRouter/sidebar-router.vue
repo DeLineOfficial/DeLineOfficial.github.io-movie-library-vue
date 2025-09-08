@@ -38,7 +38,7 @@ const props = defineProps({
     border-radius: 50%;
     font-size: 20px;
     background: var(--background-secondary);
-    border: 1px solid var(--background-accent);
+    border: 2px solid var(--background-accent);
     
     .sidebar__icon {
         color: var(--text-accent);

@@ -38,6 +38,7 @@ aside {
   gap: 16px;
   transition: .3s;
   padding: 20px;
+  position: relative;
   padding-top: 80px;
   min-width: 86px;
   width: 86px;
@@ -51,6 +52,7 @@ aside {
   top: 0;
   align-items: center;
   height: 60px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
   padding: 0 20px;
   background: var(--background-secondary);
   > .theme {

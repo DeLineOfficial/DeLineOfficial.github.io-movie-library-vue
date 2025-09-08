@@ -2,10 +2,20 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 
 import { 
   faHouse, 
-  faUser
+  faUser,
+  faArrowRight,
+  faPlus,
+  faCheck,
+  faRightToBracket,
+  faTrash,
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
   faHouse,
-  faUser
+  faUser,
+  faArrowRight,
+  faPlus,
+  faCheck,
+  faRightToBracket,
+  faTrash
 )
