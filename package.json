@@ -1,6 +1,6 @@
 {
-  "name": "calculator-vue",
-  "version": "0.0.1",
+  "name": "movie-library-vue",
+  "version": "0.0.2",
   "private": true,
   "type": "module",
   "scripts": {

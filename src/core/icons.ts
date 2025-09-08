@@ -2,10 +2,10 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 
 import { 
   faHouse, 
-  faCalculator
+  faUser
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
   faHouse,
-  faCalculator
+  faUser
 )

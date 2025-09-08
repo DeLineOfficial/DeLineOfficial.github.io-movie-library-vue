@@ -14,8 +14,8 @@ const props = defineProps({
 
 <template>
     <div class="sidebar__items">
-        <RouterLink v-for="item in props.items" :to="`${item.link}`" class="sidebar__item">
-           <font-awesome-icon :icon="item.icon" class="sidebar__icon"/>
+        <RouterLink v-for="item in props.items" :to="`${item.path}`" class="sidebar__item">
+           <font-awesome-icon :icon="item.name" class="sidebar__icon"/>
         </RouterLink>
     </div>
 </template>

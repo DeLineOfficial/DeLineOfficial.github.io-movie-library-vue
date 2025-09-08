@@ -1,19 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 import themeSwitcher from './components/themeSwitcher/themeSwitcher.vue';
 import sidebarRouter from './components/sidebarRouter/sidebar-router.vue';
+import router from './router';
 
-const routerItems = ref([
-  {
-    link: '/',
-    icon: 'house',
-  },
-  {
-    link: '/test',
-    icon: 'calculator',
-  },
-])
+
 </script>
 
 <template>
@@ -22,7 +14,7 @@ const routerItems = ref([
       <themeSwitcher class="theme"/>
     </header>
     <aside class="sidebar">
-      <sidebarRouter :items="routerItems"/>
+      <sidebarRouter :items="router.options.routes"/>
     </aside>
     <div class="main-container">
       <RouterView class="router-view"/>

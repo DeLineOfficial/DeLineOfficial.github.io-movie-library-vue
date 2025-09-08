@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { useMovieStore } from '@/stores/movieStore'
+import loader from '@/components/loader/loader.vue';
 
 
 const movieStore = useMovieStore();
@@ -20,7 +21,7 @@ onMounted(() => {
 <template>
     <div class="omdb__container">
         <div class="omdb__header">
-            <h1>Библиотеке IMDB</h1>
+            <h1>Библиотека IMDB</h1>
             
             <div class="omdb__control">
                 <input v-model="queryMovie" type="text" placeholder="Поиск фильма"/>
@@ -28,8 +29,10 @@ onMounted(() => {
                 <button @click="fetchAll()">Загрузить все</button>
             </div>
         </div>
-
-        <div class="omdb__content" v-if="movieStore.movies.length">
+        <div class="omdb__content loading" v-if="movieStore.isLoading">
+            <loader :size="'large'">Подождите немного</loader>
+        </div>
+        <div class="omdb__content" v-else-if="movieStore.movies.length">
             <div v-for="item in movieStore.movies" :key="item.id" class="omdb__item">
                 <img :src="item.Poster" alt="img" @click="console.log(item)">
                 
@@ -90,7 +93,10 @@ onMounted(() => {
         gap: 20px;
         padding-right: 16px;
         justify-content: space-between;
-        
+        &.loading {
+            align-items: center;
+            justify-content: center;
+        }
         &.not-found {
             align-items: center;
             color: var(--text-primary);

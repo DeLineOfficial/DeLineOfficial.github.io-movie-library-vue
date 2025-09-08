@@ -66,5 +66,5 @@ export const useMovieStore = defineStore('movies', () => {
     }
 
 
-    return {movies, searchMovies, fetchAllMovies}
+    return {movies, searchMovies, fetchAllMovies, isLoading}
 })

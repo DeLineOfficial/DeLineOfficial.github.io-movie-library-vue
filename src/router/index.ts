@@ -1,19 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../features/home-module/home-module.vue'
-import Calc from '../features/calculator/calculator.vue'
+import UserAccount from '../features/user-account/user-account.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'house',
       component: Home,
     },
     {
-      path: '/test',
-      name: 'test calc',
-      component: Calc,
+      path: '/account',
+      name: 'user',
+      component: UserAccount,
     }
   ],
 })
