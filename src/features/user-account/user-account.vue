@@ -70,6 +70,9 @@ const libraryStore = useAccountLibraryStore();
                 padding: 0 20px;
                 width: 20%;
             }
+            @media screen and (max-width: 576px) {
+                display: none;
+            }
         }
         .user-library__content {
             display: flex;
@@ -81,6 +84,7 @@ const libraryStore = useAccountLibraryStore();
                 display: flex;
                 align-items: center;
                 width: 100%;
+                position: relative;
                 color: var(--text-primary);
                 border-bottom: 1px solid var(--background-primary);
                 padding: 20px 20px 20px 0;
@@ -105,6 +109,25 @@ const libraryStore = useAccountLibraryStore();
                     color: var(--text-primary);
                     &:hover {
                         color: var(--text-accent);
+                    }
+                }
+
+                @media screen and (max-width: 576px) {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 16px;
+                    padding: 16px 20px;
+                    > p {
+                        width: 90%;
+                        padding: 0 10px;
+                    }
+                    > .to, .delete {
+                        position: absolute;
+                        right: 20px;
+                    } 
+                    .to {
+                        margin-right: 0;
+                        bottom: 16px;
                     }
                 }
             }
