@@ -40,6 +40,7 @@ aside {
   padding: 20px;
   position: relative;
   padding-top: 80px;
+  z-index: 11;
   min-width: 86px;
   width: 86px;
   background: var(--background-secondary);
@@ -79,6 +80,19 @@ aside {
         opacity: 1;
       }
     }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  aside {
+    position: absolute;
+    z-index: 11;
+    left: 0;
+    top: 0;
+    height: 60px;
+    padding: 0 0 0 20px;
+    width: 50%;
+    align-items: flex-start;
   }
 }
 </style>
