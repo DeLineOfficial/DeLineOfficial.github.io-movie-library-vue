@@ -55,6 +55,7 @@ aside {
   height: 60px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
   padding: 0 20px;
+  z-index: 10;
   background: var(--background-secondary);
   > .theme {
     margin-left: auto;
