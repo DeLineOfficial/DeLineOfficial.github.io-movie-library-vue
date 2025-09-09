@@ -18,13 +18,14 @@ const libraryStore = useAccountLibraryStore();
                 <p>Год</p>
             </div>
             <div class="user-library__content">
-                <div v-for="item in libraryStore.libraryMovie" :key="item.imdbID" class="user-library__element">
+                <div v-for="item in libraryStore.libraryMovie" :key="item.imdbID" v-if="libraryStore.libraryMovie.length" class="user-library__element">
                     <p>{{ item.Title }}</p>
                     <p>{{ item.Type }}</p>
                     <p>{{ item.Year }}</p>
                     <a :href="`https://www.imdb.com/title/${item.imdbID}/`" target="_blank" class="to"><font-awesome-icon icon="right-to-bracket"/></a>
                     <div class="delete" @click="libraryStore.removeMovie(item)"><font-awesome-icon icon="trash"/></div>
                 </div>
+                <div class="user-library__element not-record" v-else>Пока что здесь ничего нет...</div>
             </div>
 
         </div>
@@ -84,6 +85,9 @@ const libraryStore = useAccountLibraryStore();
                 border-bottom: 1px solid var(--background-primary);
                 padding: 20px 20px 20px 0;
                 background: var(--background-secondary);
+                &.not-record {
+                    justify-content: center;
+                }
                 .to {
                     margin-left: auto;
                     margin-right: 20px;
