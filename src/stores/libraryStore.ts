@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
+import type { Movie } from '@/core/types/movieTypes'
 
 export const useAccountLibraryStore = defineStore("library", () => {
   const libraryMovie = ref([]);
@@ -13,9 +14,9 @@ export const useAccountLibraryStore = defineStore("library", () => {
     }
   }
 
-  function appendMovie(item: any) {
+  function appendMovie(item: Movie) {
     try {
-      const checkDublicate = libraryMovie.value.find((el) => el.imdbID === item.imdbID);
+      const checkDublicate = libraryMovie.value.find((el: Movie) => el.imdbID === item.imdbID);
       if (!checkDublicate) {
         libraryMovie.value.push(item);
         recentlyAdded.value[item.imdbID] = true;
@@ -32,9 +33,9 @@ export const useAccountLibraryStore = defineStore("library", () => {
     }
   }
 
-  function removeMovie(item: any) {
+  function removeMovie(item: Movie) {
     try {
-        const newArr = libraryMovie.value.filter((el) => el !== item);
+        const newArr = libraryMovie.value.filter((el: Movie) => el !== item);
         libraryMovie.value = newArr;
         localStorage.setItem("library", JSON.stringify(libraryMovie.value));
         

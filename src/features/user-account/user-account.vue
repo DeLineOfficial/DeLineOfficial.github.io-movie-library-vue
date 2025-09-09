@@ -1,7 +1,6 @@
 <script setup lang="ts">
 
 import { useAccountLibraryStore } from '@/stores/libraryStore'
-import { onMounted } from 'vue';
 
 const libraryStore = useAccountLibraryStore();
 
@@ -19,7 +18,7 @@ const libraryStore = useAccountLibraryStore();
                 <p>Год</p>
             </div>
             <div class="user-library__content">
-                <div v-for="item in libraryStore.libraryMovie" class="user-library__element">
+                <div v-for="item in libraryStore.libraryMovie" :key="item.imdbID" class="user-library__element">
                     <p>{{ item.Title }}</p>
                     <p>{{ item.Type }}</p>
                     <p>{{ item.Year }}</p>

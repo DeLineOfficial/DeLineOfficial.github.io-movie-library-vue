@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue';
-import { useMovieStore } from '@/stores/movieStore'
-import { useAccountLibraryStore } from '@/stores/libraryStore'
+import { useMovieStore } from '@/stores/movieStore';
+import { useAccountLibraryStore } from '@/stores/libraryStore';
 import loader from '@/components/loader/loader.vue';
-
 
 const movieStore = useMovieStore();
 const libraryStore = useAccountLibraryStore();
