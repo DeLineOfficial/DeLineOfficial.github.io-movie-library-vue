@@ -54,6 +54,7 @@ aside {
   height: 60px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
   padding: 0 20px;
+  z-index: 10;
   background: var(--background-secondary);
   > .theme {
     margin-left: auto;
@@ -79,6 +80,19 @@ aside {
         opacity: 1;
       }
     }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  aside {
+    position: absolute;
+    z-index: 11;
+    left: 0;
+    top: 0;
+    height: 60px;
+    padding: 0 0 0 20px;
+    width: 50%;
+    align-items: flex-start;
   }
 }
 </style>

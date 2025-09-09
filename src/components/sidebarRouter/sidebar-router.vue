@@ -53,5 +53,17 @@ const props = defineProps({
     }
 
   }
+  @media screen and (max-width: 576px) {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    .sidebar__item {
+      width: 40px;
+      height: 40px;
+      > .sidebar__icon {
+        font-size: 16px;
+      }
+    }
+  }
 }
 </style>

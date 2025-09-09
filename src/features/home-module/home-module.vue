@@ -55,28 +55,10 @@ onMounted(() => {
             В данный момент ничего не найдено.
         </div>
     </div>
-
-    <div v-if="libraryStore.statusOk != undefined" class="append__accept" :class="{'error' : libraryStore.statusOk == false}">
-        <span v-if="libraryStore.statusOk">Элемент успешно добавлен</span>
-        <span v-else>Такой элемент уже существует</span>
-    </div>
 </template>
 
 <style lang="scss" scoped>
-.append__accept {
-    display: flex;
-    position: fixed;
-    background: var(--background-secondary);
-    border: 1px solid var(--background-accent);
-    padding: 24px;
-    z-index: 10;
-    bottom: 20px;
-    right: 20px;
-    color: var(--text-primary);
-    &.error {
-        border: 1px solid red;
-    }
-}
+
 .omdb__container {
     display: flex;
     width: 100%;
@@ -126,6 +108,24 @@ onMounted(() => {
                 outline: none;
                 border: none;
             }
+            @media screen and (max-width: 576px) {
+                flex-direction: column;
+                width: 100%;
+                > * {
+                    width: 100%;
+                    text-align: center;
+                }
+                > button {
+                    text-align: center;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+        @media screen and (max-width: 880px) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
         }
     }
     > .omdb__content {
@@ -147,10 +147,13 @@ onMounted(() => {
             color: var(--text-primary);
             justify-content: center;
         }
+        @media screen and (max-width: 576px) {
+            padding: 0;
+        }
         > .omdb__item {
             display: flex;
             flex-direction: column;
-            height: 600px;
+            height: auto;
             width: calc(20% - 20px);
             background: var(--background-secondary);
 
@@ -165,7 +168,7 @@ onMounted(() => {
                 padding: 20px;
                 display: flex;
                 flex-direction: column;
-                height: 160px;
+                height: 100%;
 
                 > .title {
                     font-size: 24px;
@@ -222,8 +225,36 @@ onMounted(() => {
                     }
                 }
             }
+            @media screen and (max-width: 1660px) {
+                width: calc(25% - 15px);
+                height: auto;
+                > img {
+                    min-height: 440px;
+                    height: 440px;
+                }
+            }
+            @media screen and (max-width: 1224px) {
+                width: calc(33% - 11px);
+                > img {
+                    height: 350px;
+                    min-height: 350px;
+                }
+            }
+            @media screen and (max-width: 880px) {
+                width: calc(50% - 10px);
+                
+            }
+            @media screen and (max-width: 576px) {
+                width: 100%;
+                > img {
+                    height: 400px;
+                    min-height: 400px;
+                }
+            }
         }
     }
 }
+
+
 
 </style>
